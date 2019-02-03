@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import FilterList from './FilterList';
-import StoreContext from '../StoreContext';
+import { removeCompletedTodos } from '../store/actions';
 import {
   selectFilter,
   selectActiveCount,
   selectCompletedCount
-} from '../selectors';
-import { removeCompletedTodos } from '../actions';
+} from '../store/selectors';
+import StoreContext from '../store/StoreContext';
+import FilterList from './FilterList';
 
 export default function Footer() {
   const [state, dispatch] = useContext(StoreContext);

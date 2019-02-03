@@ -1,6 +1,6 @@
 import React from 'react';
+import { changeTodoLabel, changeTodoCompleted, removeTodo } from '../store/actions';
 import TodoListItem from './TodoListItem';
-import { changeTodoLabel, changeTodoCompleted, removeTodo } from '../actions';
 
 export default function TodoList(props) {
   const { items, dispatch } = props;

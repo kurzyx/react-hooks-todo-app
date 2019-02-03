@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocationHashChange } from '../hooks';
-import { changeFilter } from '../actions';
-import StoreContext from '../StoreContext';
+import { changeFilter } from '../store/actions';
+import StoreContext from '../store/StoreContext';
 import FilterListItem from './FilterListItem';
 
 const filters = [

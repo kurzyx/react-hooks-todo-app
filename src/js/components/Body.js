@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import TodoList from './TodoList';
-import StoreContext from '../StoreContext';
+import { changeAllTodosCompleted } from '../store/actions';
 import {
   selectCount,
   selectCompletedCount,
   selectItemsFiltered
-} from '../selectors';
-import { changeAllTodosCompleted } from '../actions';
+} from '../store/selectors';
+import StoreContext from '../store/StoreContext';
+import TodoList from './TodoList';
 
 export default function Body() {
   const [state, dispatch] = useContext(StoreContext);

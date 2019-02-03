@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import Body from './components/Body';
 import Footer from './components/Footer';
-import StoreContext from './StoreContext';
+import reducer from './store/reducer';
+import { selectCount, selectActiveCount } from './store/selectors';
+import StoreContext from './store/StoreContext';
 import { usePersistedReducer, useWindowTitle } from './hooks';
-import reducer from './reducer';
-import { selectCount, selectActiveCount } from './selectors';
 
 export default function App() {
   const [state, dispatch] = usePersistedReducer('state', reducer);

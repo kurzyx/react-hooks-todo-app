@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
-import StoreContext from '../StoreContext';
-import { createTodo } from '../actions';
+import { createTodo } from '../store/actions';
+import StoreContext from '../store/StoreContext';
 
 export default function Header() {
   const [, dispatch] = useContext(StoreContext);

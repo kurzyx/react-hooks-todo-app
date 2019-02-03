@@ -36,3 +36,9 @@ export function useLocationHashChange(onChangeFilter) {
     return () => window.removeEventListener('hashchange', handler);
   }, []);
 }
+
+export function useWindowTitle(title) {
+  useEffect(() => {
+    window.document.title = title;
+  }, [title]);
+}

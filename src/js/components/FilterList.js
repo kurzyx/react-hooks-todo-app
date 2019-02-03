@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useLocationHashChange } from '../hooks';
+import { changeFilter } from '../actions';
+import StoreContext from '../StoreContext';
 import FilterListItem from './FilterListItem';
 
 const filters = [
@@ -7,8 +10,37 @@ const filters = [
   { name: 'completed', label: 'Completed' }
 ];
 
+function useLocationHashFilter(callback) {
+  useLocationHashChange(hash => {
+    let newFilter;
+
+    switch (hash) {
+      case '#/active':
+      case '#active':
+        newFilter = 'active';
+        break;
+      case '#/completed':
+      case '#completed':
+        newFilter = 'completed';
+        break;
+      default:
+        newFilter = '';
+        break;
+    }
+
+    callback(newFilter);
+  });
+}
+
 export default function FilterList(props) {
   const { currentFilter } = props;
+
+  const [, dispatch] = useContext(StoreContext);
+
+  useLocationHashFilter(newFilter => {
+    const action = changeFilter(newFilter);
+    dispatch(action);
+  });
 
   return (
     <ul className="filters">
